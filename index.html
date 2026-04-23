@@ -8,6 +8,9 @@
     html { scroll-behavior: smooth; }
     /* Efeito de brilho suave para o mockup */
     .glow { box-shadow: 0 0 50px -12px rgba(59, 130, 246, 0.5); }
+    /* Esconde a barra de rolagem para criar um carrossel estilo App */
+    .hide-scrollbar::-webkit-scrollbar { display: none; }
+    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -29,27 +32,27 @@
     </a>
   </nav>
 
-  <header class="bg-slate-900 pt-32 pb-20 md:pt-48 md:pb-32 px-5 border-b border-slate-800 relative overflow-hidden text-center">
+  <header class="bg-slate-900 pt-24 pb-12 md:pt-48 md:pb-32 px-5 border-b border-slate-800 relative overflow-hidden text-center">
     <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-gradient-to-b from-blue-600/10 to-transparent pointer-events-none"></div>
 
     <div class="container mx-auto relative z-10">
-      <span class="inline-block bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] md:text-xs font-bold px-4 py-2 rounded-full uppercase tracking-[0.2em] mb-8">
+      <span class="inline-block bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] md:text-xs font-bold px-4 py-2 rounded-full uppercase tracking-[0.2em] mb-6 md:mb-8">
         Tecnologia para Consultórios de Enfermagem
       </span>
 
-      <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight text-white mb-8 tracking-tighter">
+      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight text-white mb-6 md:mb-8 tracking-tighter px-2">
         A infraestrutura <span class="text-blue-500">invisível</span> <br class="hidden md:block"> do seu sucesso clínico.
       </h1>
 
-      <p class="text-slate-400 text-base md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed">
-        Digitalizamos sua clínica com agendamento inteligente e prontuário na nuvem. Total segurança COFEN e LGPD para você focar no que importa: **o cuidado.**
+      <p class="text-slate-400 text-base md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed px-2">
+        Digitalizamos sua clínica com agendamento inteligente e prontuário na nuvem. Total segurança COFEN e LGPD para você focar no que importa: <strong>o cuidado.</strong>
       </p>
 
       <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-6">
-        <a href="https://wa.me/5531986105605?text=Olá, quero saber mais sobre a NursyDigital!" target="_blank" class="bg-blue-600 text-white px-8 py-4 rounded-xl text-lg font-bold hover:bg-blue-500 transition shadow-2xl shadow-blue-600/30">
+        <a href="https://wa.me/5531986105605?text=Olá, quero saber mais sobre a NursyDigital!" target="_blank" class="w-full md:w-auto bg-blue-600 text-white px-8 py-4 rounded-xl text-lg font-bold hover:bg-blue-500 transition shadow-2xl shadow-blue-600/30">
           Começar agora
         </a>
-        <a href="consultorio.html" class="bg-slate-800 text-slate-300 border border-slate-700 px-8 py-4 rounded-xl text-lg font-bold hover:bg-slate-700 transition">
+        <a href="consultorio.html" class="w-full md:w-auto bg-slate-800 text-slate-300 border border-slate-700 px-8 py-4 rounded-xl text-lg font-bold hover:bg-slate-700 transition">
           Ver Consultório Modelo
         </a>
       </div>
@@ -102,75 +105,92 @@
     </div>
   </section>
 
-  <section id="precos" class="py-20 md:py-32 bg-slate-50 border-y border-slate-200 scroll-mt-24 px-5 text-center">
+  <section id="precos" class="py-20 md:py-32 bg-slate-50 border-y border-slate-200 scroll-mt-24 text-center">
     <div class="container mx-auto">
-      <h2 class="text-3xl md:text-5xl font-black text-slate-900 mb-16 tracking-tight px-4">O investimento que se paga <br class="hidden md:block"> em uma única consulta.</h2>
+      <h2 class="text-3xl md:text-5xl font-black text-slate-900 mb-10 md:mb-16 tracking-tight px-5">O investimento que se paga <br class="hidden md:block"> em uma única consulta.</h2>
       
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
-          <h3 class="font-bold text-slate-500 uppercase tracking-widest text-xs mb-4">Plano Essencial</h3>
-          <p class="text-4xl font-black text-slate-900 mb-6">R$ 97<span class="text-sm text-slate-400">/mês</span></p>
-          <ul class="text-left text-sm space-y-4 mb-8 text-slate-600">
-            <li class="flex items-center italic">✓ Landing Page Profissional</li>
-            <li class="flex items-center italic">✓ Agendamento Online</li>
-            <li class="flex items-center italic">✓ Link para Bio do Instagram</li>
-          </ul>
+      <div class="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 px-5 md:grid md:grid-cols-3 md:gap-8 max-w-6xl md:mx-auto md:overflow-visible hide-scrollbar">
+        
+        <div class="w-[85vw] shrink-0 snap-center md:w-auto bg-white p-8 rounded-3xl border border-slate-200 shadow-sm flex flex-col justify-between">
+          <div>
+            <h3 class="font-bold text-slate-500 uppercase tracking-widest text-xs mb-4">Plano Essencial</h3>
+            <p class="text-4xl font-black text-slate-900 mb-6">R$ 97<span class="text-sm text-slate-400">/mês</span></p>
+            <ul class="text-left text-sm space-y-4 mb-8 text-slate-600">
+              <li class="flex items-center italic">✓ Landing Page Profissional</li>
+              <li class="flex items-center italic">✓ Agendamento Online</li>
+              <li class="flex items-center italic">✓ Link para Bio do Instagram</li>
+            </ul>
+          </div>
           <a href="#" class="block w-full py-3 bg-slate-100 text-slate-600 font-bold rounded-xl hover:bg-slate-200 transition">Assinar Starter</a>
         </div>
 
-        <div class="bg-white p-8 rounded-3xl border-2 border-blue-600 shadow-xl relative transform md:-translate-y-4">
-          <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-blue-600 text-white text-[10px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest">Mais Popular</div>
-          <h3 class="font-bold text-blue-600 uppercase tracking-widest text-xs mb-4">Plano Clínico</h3>
-          <p class="text-4xl font-black text-slate-900 mb-6">R$ 149<span class="text-sm text-slate-400">/mês</span></p>
-          <ul class="text-left text-sm space-y-4 mb-8 text-slate-700">
-            <li class="flex items-center font-bold">✓ Tudo do Essencial</li>
-            <li class="flex items-center font-bold">✓ Prontuário Eletrônico (LGPD)</li>
-            <li class="flex items-center font-bold">✓ Evoluções Ilimitadas</li>
-            <li class="flex items-center font-bold">✓ Suporte via WhatsApp</li>
-          </ul>
+        <div class="w-[85vw] shrink-0 snap-center md:w-auto bg-white p-8 rounded-3xl border-2 border-blue-600 shadow-xl relative md:-translate-y-4 flex flex-col justify-between">
+          <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-blue-600 text-white text-[10px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest whitespace-nowrap">Mais Popular</div>
+          <div>
+            <h3 class="font-bold text-blue-600 uppercase tracking-widest text-xs mb-4 mt-2">Plano Clínico</h3>
+            <p class="text-4xl font-black text-slate-900 mb-6">R$ 149<span class="text-sm text-slate-400">/mês</span></p>
+            <ul class="text-left text-sm space-y-4 mb-8 text-slate-700">
+              <li class="flex items-center font-bold">✓ Tudo do Essencial</li>
+              <li class="flex items-center font-bold">✓ Prontuário Eletrônico (LGPD)</li>
+              <li class="flex items-center font-bold">✓ Evoluções Ilimitadas</li>
+              <li class="flex items-center font-bold">✓ Suporte via WhatsApp</li>
+            </ul>
+          </div>
           <a href="#" class="block w-full py-3 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition shadow-lg shadow-blue-600/30">Assinar Clínico</a>
         </div>
 
-        <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
-          <h3 class="font-bold text-slate-500 uppercase tracking-widest text-xs mb-4">Plano Corporate</h3>
-          <p class="text-2xl font-black text-slate-900 mb-6">Sob Consulta</p>
-          <ul class="text-left text-sm space-y-4 mb-8 text-slate-600">
-            <li class="flex items-center">✓ Clínicas Multi-profissionais</li>
-            <li class="flex items-center">✓ Gestão Financeira Avançada</li>
-            <li class="flex items-center">✓ API de Integração</li>
-          </ul>
+        <div class="w-[85vw] shrink-0 snap-center md:w-auto bg-white p-8 rounded-3xl border border-slate-200 shadow-sm flex flex-col justify-between">
+          <div>
+            <h3 class="font-bold text-slate-500 uppercase tracking-widest text-xs mb-4">Plano Corporate</h3>
+            <p class="text-2xl font-black text-slate-900 mb-6 py-2">Sob Consulta</p>
+            <ul class="text-left text-sm space-y-4 mb-8 text-slate-600">
+              <li class="flex items-center">✓ Clínicas Multi-profissionais</li>
+              <li class="flex items-center">✓ Gestão Financeira Avançada</li>
+              <li class="flex items-center">✓ API de Integração</li>
+            </ul>
+          </div>
           <a href="#" class="block w-full py-3 bg-slate-800 text-white font-bold rounded-xl hover:bg-slate-900 transition">Falar com Consultor</a>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="depoimentos" class="py-20 md:py-32 bg-white scroll-mt-24 px-5">
-    <div class="container mx-auto max-w-4xl">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-        <div class="space-y-6">
-          <div class="text-blue-500 text-4xl font-serif">“</div>
-          <p class="text-xl md:text-2xl text-slate-800 font-medium leading-relaxed italic">
-            "Antes da NursyDigital, eu perdia quase duas horas por dia no WhatsApp tentando encaixar pacientes. Hoje a agenda roda sozinha e eu consegui aumentar meus atendimentos em 30%."
-          </p>
-          <div class="flex items-center">
-            <div class="w-12 h-12 bg-slate-200 rounded-full mr-4"></div>
+  <section id="depoimentos" class="py-20 bg-white scroll-mt-24 border-t border-slate-100">
+    <div class="container mx-auto max-w-5xl">
+      <div class="text-center mb-10 px-5">
+        <h2 class="text-3xl font-black text-slate-900 tracking-tight">O sucesso clínico validado por quem vive a enfermagem.</h2>
+      </div>
+      
+      <div class="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 px-5 md:grid md:grid-cols-2 md:gap-10 max-w-5xl md:mx-auto md:overflow-visible hide-scrollbar">
+        
+        <div class="w-[85vw] shrink-0 snap-center md:w-auto bg-slate-50 p-6 rounded-2xl border border-slate-100 space-y-4 flex flex-col justify-between">
+          <div>
+            <div class="text-blue-500 text-4xl font-serif leading-none">“</div>
+            <p class="text-base text-slate-800 font-medium leading-relaxed italic">
+              "Antes da NursyDigital, eu perdia quase duas horas por dia no WhatsApp tentando encaixar pacientes. Hoje a agenda roda sozinha e eu consegui aumentar meus atendimentos em 30%."
+            </p>
+          </div>
+          <div class="flex items-center pt-4 border-t border-slate-200 mt-4">
+            <div class="w-10 h-10 bg-slate-300 rounded-full mr-3 shrink-0"></div>
             <div>
-              <p class="font-bold text-slate-900">Enf. Mariana J.</p>
-              <p class="text-xs text-slate-500 uppercase font-bold tracking-widest">Estomaterapeuta - BH</p>
+              <p class="font-bold text-slate-900 text-sm">Enf. Mariana J.</p>
+              <p class="text-[10px] text-slate-500 uppercase font-bold tracking-widest">Estomaterapeuta - BH</p>
             </div>
           </div>
         </div>
-        <div class="space-y-6">
-          <div class="text-blue-500 text-4xl font-serif">“</div>
-          <p class="text-xl md:text-2xl text-slate-800 font-medium leading-relaxed italic">
-            "Ter um prontuário blindado e adequado à LGPD me deu a paz de espírito necessária para abrir meu consultório particular. É o melhor investimento que já fiz."
-          </p>
-          <div class="flex items-center">
-            <div class="w-12 h-12 bg-slate-200 rounded-full mr-4"></div>
+        
+        <div class="w-[85vw] shrink-0 snap-center md:w-auto bg-slate-50 p-6 rounded-2xl border border-slate-100 space-y-4 flex flex-col justify-between">
+          <div>
+            <div class="text-blue-500 text-4xl font-serif leading-none">“</div>
+            <p class="text-base text-slate-800 font-medium leading-relaxed italic">
+              "Ter um prontuário blindado e adequado à LGPD me deu a paz de espírito necessária para abrir meu consultório particular. É o melhor investimento que já fiz."
+            </p>
+          </div>
+          <div class="flex items-center pt-4 border-t border-slate-200 mt-4">
+            <div class="w-10 h-10 bg-slate-300 rounded-full mr-3 shrink-0"></div>
             <div>
-              <p class="font-bold text-slate-900">Enf. Carlos T.</p>
-              <p class="text-xs text-slate-500 uppercase font-bold tracking-widest">Enfermagem Integrativa</p>
+              <p class="font-bold text-slate-900 text-sm">Enf. Carlos T.</p>
+              <p class="text-[10px] text-slate-500 uppercase font-bold tracking-widest">Enfermagem Integrativa</p>
             </div>
           </div>
         </div>
@@ -178,24 +198,24 @@
     </div>
   </section>
 
-  <section id="contato" class="py-20 bg-blue-600 px-5 text-center">
+  <section id="contato" class="py-16 bg-blue-600 px-5 text-center">
     <div class="container mx-auto max-w-3xl">
       <h2 class="text-3xl md:text-5xl font-black text-white mb-6 tracking-tight">O seu consultório merece tecnologia de ponta.</h2>
-      <p class="text-blue-100 mb-10 text-lg">Baixe nosso guia gratuito: **"Como adequar sua clínica às normas do COFEN e LGPD em 2026."**</p>
+      <p class="text-blue-100 mb-10 text-base md:text-lg px-2">Baixe nosso guia gratuito: <strong>Como adequar sua clínica às normas do COFEN e LGPD em 2026.</strong></p>
       
-      <form class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
-        <input type="email" placeholder="Seu melhor e-mail" class="flex-1 px-6 py-4 rounded-xl focus:outline-none focus:ring-4 focus:ring-blue-400">
-        <button type="button" class="bg-slate-900 text-white px-8 py-4 rounded-xl font-bold hover:bg-slate-800 transition">Baixar Guia Grátis</button>
+      <form class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 max-w-xl mx-auto">
+        <input type="email" placeholder="Seu melhor e-mail" class="w-full px-6 py-4 rounded-xl focus:outline-none focus:ring-4 focus:ring-blue-400">
+        <button type="button" class="w-full md:w-auto bg-slate-900 text-white px-8 py-4 rounded-xl font-bold hover:bg-slate-800 transition shadow-lg whitespace-nowrap">Baixar Guia Grátis</button>
       </form>
     </div>
   </section>
 
-  <footer class="bg-slate-950 py-12 px-5 border-t border-slate-900">
-    <div class="container mx-auto flex flex-col md:flex-row justify-between items-center text-slate-600 text-[10px] md:text-xs font-bold uppercase tracking-[0.2em]">
-      <div class="mb-4 md:mb-0">
+  <footer class="bg-slate-950 py-12 px-5 border-t border-slate-900 pb-28 md:pb-12">
+    <div class="container mx-auto flex flex-col md:flex-row justify-between items-center text-slate-600 text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] space-y-4 md:space-y-0">
+      <div class="text-center md:text-left">
         Nursy<span class="text-blue-500">Digital</span> © 2026
       </div>
-      <div class="space-x-6">
+      <div class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6 text-center">
         <span>Projeto Acadêmico PIN</span>
         <span>Enfermagem Artur, Neide e Rayssa</span>
       </div>
